@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>requirejs-Demo</title>
+  <script src="requirejs.min.js"></script>
+  <style>
+  	 body {color: #00c587;}
+     .starter {padding: 40px 15px; text-align: center;}
+     .register {background-color: #00c587;border: solid 1px #00c587;color: #fff;font-size: 16px;display: inline-block;border-radius: 2px;cursor: pointer;text-align: center;}
+  </style>
+</head>
+<body>
+
+	<div class="container">
+	    <div class="starter">
+	        <h1>SensorsData JavaScript SDK</h1>
+	        <p class="lead">Hello</p>
+	        <button class="lead register" id="register">注册按钮</button>
+	    </div>
+	</div>
+	
+
+  <script>
+
+   requirejs(["sensorsdata.amd.min"], function(sensors) {
+
+        //神策 SDK 初始化
+        sensors.init({
+          server_url: '数据接收地址，可在神策分析界面复制',
+          heatmap: {
+            // 默认开启采集元素点击事件，not_collect 为关闭。
+             clickmap:'default', 
+            // 默认或者设置 default 开启采集元素点击事件，not_collect 为关闭。
+             scroll_notice_map:'not_collect' 
+          }
+        });
+        //神策设置公共属性
+        sensors.registerPage({
+          platform:"pc"
+        });
+        //神策用户关联的方法，其中 user_id 为用户的真实 id，字符串或者数值类型都可以。
+        sensors.login('user_id');
+        //神策预置的页面浏览事件
+        sensors.quick('autoTrack');
+
+        // 神策自定义事件的追踪方法 sensors.track(event_name[, properties][, callback]) 记录事件：
+        // event_name: string，必选。表示要追踪的事件名。
+        // properties: object，可选。表示这个事件的属性。
+        // callback: function，可选。表示已经发送完数据之后的回调。
+
+        //点击注册按钮
+         document.getElementById("register").onclick = function(){
+           sensors.track('register', {
+               mail:"aaa@ccc.com"
+           }); 
+           //其他的一些行为
+         }
+
+   });
+
+  </script>
+
+</body>
+</html>
