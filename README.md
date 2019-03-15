@@ -11,7 +11,7 @@
 
 [requirejs方式引入](https://sensorsdata.github.io/sa-sdk-javascript-demo/requirejs)   
 
-[vue-demo](https://sensorsdata.github.io/sa-sdk-javascript-demo/vue)   
+[vue-demo](https://sensorsdata.github.io/sa-sdk-javascript-demo/vue/dist)   
 
 
 
