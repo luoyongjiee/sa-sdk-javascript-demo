@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+演示链接：https://sensorsdata.github.io/sa-sdk-javascript-demo/vue/dist/
+
 ## Build Setup
 
 ``` bash
