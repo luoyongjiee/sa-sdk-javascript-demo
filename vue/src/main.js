@@ -9,7 +9,7 @@ import router from './router'
 import sensors from 'sa-sdk-javascript'
 sensors.init({
   server_url: '您的数据接收地址',
-  heatmap_url:'您的heatmap.min.js文件的相对位置',
+  heatmap_url:'您的heatmap.min.js文件的相对路径',
   //将heatmap设置为空对象表示开启$WebClick和$WebStay事件的采集
   heatmap: {},
   //设置该属性后SDK在url切换后自动采集$pageview事件
